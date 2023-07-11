@@ -52,7 +52,6 @@ export function createHome() {
   img.src = heroImg;
   img.alt = "sushi";
   img.classList.add("hero");
-
   content.appendChild(main);
   main.appendChild(heroContainer);
   heroContainer.appendChild(heroTextContainer);
@@ -60,4 +59,43 @@ export function createHome() {
   heroContainer.appendChild(heroImage);
   heroImage.appendChild(img);
   return main;
+}
+
+export function createMenu() {
+  const menuItems = [
+    "Crab Tempura",
+    "Wagyu Beef",
+    "Tamago",
+    "Grilled Unagi",
+    "Seared Octopus",
+    "Squid Ume Plum",
+    "Extra Large Scallop",
+    "Squid",
+    "Abalone",
+    "Shrimp",
+    "Shrimp with Cheese",
+    "Shrimp with Avocado",
+    "Flame Grilled Mackerel",
+    "Pickled Yellowtail",
+    "Broiled Salmon",
+    "Salmon",
+  ];
+
+  const menu = document.getElementById("menu-container");
+  menuItems.forEach((element, index) => {
+    const div = document.createElement("div");
+    div.classList.add(`menu-item`);
+    const img = document.createElement("img");
+    img.src = element[index];
+    const text = document.createElement("p");
+    text.textContent = element;
+    div.appendChild(text);
+    menu.appendChild(div);
+  });
+}
+
+{
+  /* <div class="menu-item">
+          <img src="/src/tuna.png" alt="tuna" />
+          <h4>Tuna</h4> */
 }
