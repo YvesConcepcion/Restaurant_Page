@@ -1,5 +1,5 @@
 // import { container } from "webpack";
-import heroImg from "./hero.png";
+import heroImg from "./assets/hero.png";
 
 export function createHeader() {
   const content = document.getElementById("content");
