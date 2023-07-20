@@ -1,6 +1,20 @@
 // import { container } from "webpack";
 import heroImg from "./assets/hero.png";
 
+export const createElement = (type, content, parentID) => {
+  const element = document.createElement(type);
+  element.innerHTML = content;
+  document.getElementById(parentID).appendChild(element);
+
+  return {
+    type,
+    content,
+    addClass(newClass) {
+      element.classList.add(newClass);
+    },
+  };
+};
+
 export function createHeader() {
   const content = document.getElementById("content");
   const header = document.createElement("header");
@@ -9,17 +23,17 @@ export function createHeader() {
   const nav = document.createElement("nav");
   const ul = document.createElement("ul");
   const navItems = [
-    { text: "Menu", href: "#" },
-    { text: "Take-out", href: "#" },
-    { text: "Locations", href: "#" },
-    { text: "Contact us", href: "#" },
-    { text: "Order Now", href: "#" },
+    { text: "Menu", target: "#menu" },
+    { text: "Take-out", target: "#takeout" },
+    { text: "Locations", target: "#location" },
+    { text: "Contact us", target: "#contact" },
+    { text: "Order Now", target: "#order" },
   ];
 
   navItems.forEach((item) => {
     const li = document.createElement("li");
     const link = document.createElement("a");
-    link.href = item.href;
+    link.setAttribute("data-tab-target", item.target);
     link.textContent = item.text;
     link.classList.add(item.class);
     li.appendChild(link);
@@ -61,38 +75,38 @@ export function createHome() {
   return main;
 }
 
-export function createMenu() {
-  const menuItems = [
-    "Crab Tempura",
-    "Wagyu Beef",
-    "Tamago",
-    "Grilled Unagi",
-    "Seared Octopus",
-    "Squid Ume Plum",
-    "Extra Large Scallop",
-    "Squid",
-    "Abalone",
-    "Shrimp",
-    "Shrimp with Cheese",
-    "Shrimp with Avocado",
-    "Flame Grilled Mackerel",
-    "Pickled Yellowtail",
-    "Broiled Salmon",
-    "Salmon",
-  ];
+// export function createMenu() {
+//   const menuItems = [
+//     "Crab Tempura",
+//     "Wagyu Beef",
+//     "Tamago",
+//     "Grilled Unagi",
+//     "Seared Octopus",
+//     "Squid Ume Plum",
+//     "Extra Large Scallop",
+//     "Squid",
+//     "Abalone",
+//     "Shrimp",
+//     "Shrimp with Cheese",
+//     "Shrimp with Avocado",
+//     "Flame Grilled Mackerel",
+//     "Pickled Yellowtail",
+//     "Broiled Salmon",
+//     "Salmon",
+//   ];
 
-  const menu = document.getElementById("menu-container");
-  menuItems.forEach((element, index) => {
-    const div = document.createElement("div");
-    div.classList.add(`menu-item`);
-    const img = document.createElement("img");
-    img.src = element[index];
-    const text = document.createElement("p");
-    text.textContent = element;
-    div.appendChild(text);
-    menu.appendChild(div);
-  });
-}
+//   const menu = document.getElementById("menu-container");
+//   menuItems.forEach((element, index) => {
+//     const div = document.createElement("div");
+//     div.classList.add(`menu-item`);
+//     const img = document.createElement("img");
+//     const text = document.createElement("p");
+//     text.textContent = element;
+//     div.appendChild(img);
+//     div.appendChild(text);
+//     menu.appendChild(div);
+//   });
+// }
 
 {
   /* <div class="menu-item">
