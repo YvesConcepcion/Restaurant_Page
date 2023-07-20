@@ -1,49 +1,38 @@
+import createEl from "./functions";
 // import { container } from "webpack";
 import heroImg from "./assets/hero.png";
 
-export const createElement = (type, content, parentID) => {
-  const element = document.createElement(type);
-  element.innerHTML = content;
-  document.getElementById(parentID).appendChild(element);
-
-  return {
-    type,
-    content,
-    addClass(newClass) {
-      element.classList.add(newClass);
-    },
-  };
-};
-
 export function createHeader() {
-  const content = document.getElementById("content");
-  const header = document.createElement("header");
-  const h1 = document.createElement("h1");
-  h1.textContent = "Nigiri Express";
-  const nav = document.createElement("nav");
-  const ul = document.createElement("ul");
-  const navItems = [
-    { text: "Menu", target: "#menu" },
-    { text: "Take-out", target: "#takeout" },
-    { text: "Locations", target: "#location" },
-    { text: "Contact us", target: "#contact" },
-    { text: "Order Now", target: "#order" },
-  ];
+  // const content = document.getElementById("content");
+  // const header = document.createElement("header");
+  // const h1 = document.createElement("h1");
+  // h1.textContent = "Nigiri Express";
+  const header = createEl("header", "Nigiri express", "content");
+  console.log(header);
 
-  navItems.forEach((item) => {
-    const li = document.createElement("li");
-    const link = document.createElement("a");
-    link.setAttribute("data-tab-target", item.target);
-    link.textContent = item.text;
-    link.classList.add(item.class);
-    li.appendChild(link);
-    ul.appendChild(li);
-  });
+  // const nav = document.createElement("nav");
+  // const ul = document.createElement("ul");
+  // const navItems = [
+  //   { text: "Menu", target: "#menu" },
+  //   { text: "Take-out", target: "#takeout" },
+  //   { text: "Locations", target: "#location" },
+  //   { text: "Contact us", target: "#contact" },
+  //   { text: "Order Now", target: "#order" },
+  // ];
 
-  nav.appendChild(ul);
-  header.appendChild(h1);
-  header.appendChild(nav);
-  content.appendChild(header);
+  // navItems.forEach((item) => {
+  //   const li = document.createElement("li");
+  //   const link = document.createElement("a");
+  //   link.setAttribute("data-tab-target", item.target);
+  //   link.textContent = item.text;
+  //   li.appendChild(link);
+  //   ul.appendChild(li);
+  // });
+
+  // nav.appendChild(ul);
+  // header.appendChild(h1);
+  // header.appendChild(nav);
+  // content.appendChild(header);
   return header;
 }
 
