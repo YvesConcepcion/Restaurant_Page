@@ -1,38 +1,37 @@
-import createEl from "./functions";
 // import { container } from "webpack";
 import heroImg from "./assets/hero.png";
 
 export function createHeader() {
-  // const content = document.getElementById("content");
-  // const header = document.createElement("header");
-  // const h1 = document.createElement("h1");
-  // h1.textContent = "Nigiri Express";
-  const header = createEl("header", "Nigiri express", "content");
-  console.log(header);
+  const content = document.getElementById("content");
+  const header = document.createElement("header");
+  const h1 = document.createElement("h1");
+  h1.textContent = "Nigiri Express";
+  // const header = createEl("header", "Nigiri express", "content");
+  // console.log(header);
 
-  // const nav = document.createElement("nav");
-  // const ul = document.createElement("ul");
-  // const navItems = [
-  //   { text: "Menu", target: "#menu" },
-  //   { text: "Take-out", target: "#takeout" },
-  //   { text: "Locations", target: "#location" },
-  //   { text: "Contact us", target: "#contact" },
-  //   { text: "Order Now", target: "#order" },
-  // ];
+  const nav = document.createElement("nav");
+  const ul = document.createElement("ul");
+  const navItems = [
+    { text: "Menu", target: "#menu" },
+    { text: "Take-out", target: "#takeout" },
+    { text: "Locations", target: "#location" },
+    { text: "Contact us", target: "#contact" },
+    { text: "Order Now", target: "#order" },
+  ];
 
-  // navItems.forEach((item) => {
-  //   const li = document.createElement("li");
-  //   const link = document.createElement("a");
-  //   link.setAttribute("data-tab-target", item.target);
-  //   link.textContent = item.text;
-  //   li.appendChild(link);
-  //   ul.appendChild(li);
-  // });
+  navItems.forEach((item) => {
+    const li = document.createElement("li");
+    const link = document.createElement("a");
+    link.setAttribute("data-tab-target", item.target);
+    link.textContent = item.text;
+    li.appendChild(link);
+    ul.appendChild(li);
+  });
 
-  // nav.appendChild(ul);
-  // header.appendChild(h1);
-  // header.appendChild(nav);
-  // content.appendChild(header);
+  nav.appendChild(ul);
+  header.appendChild(h1);
+  header.appendChild(nav);
+  content.appendChild(header);
   return header;
 }
 
@@ -62,43 +61,4 @@ export function createHome() {
   heroContainer.appendChild(heroImage);
   heroImage.appendChild(img);
   return main;
-}
-
-// export function createMenu() {
-//   const menuItems = [
-//     "Crab Tempura",
-//     "Wagyu Beef",
-//     "Tamago",
-//     "Grilled Unagi",
-//     "Seared Octopus",
-//     "Squid Ume Plum",
-//     "Extra Large Scallop",
-//     "Squid",
-//     "Abalone",
-//     "Shrimp",
-//     "Shrimp with Cheese",
-//     "Shrimp with Avocado",
-//     "Flame Grilled Mackerel",
-//     "Pickled Yellowtail",
-//     "Broiled Salmon",
-//     "Salmon",
-//   ];
-
-//   const menu = document.getElementById("menu-container");
-//   menuItems.forEach((element, index) => {
-//     const div = document.createElement("div");
-//     div.classList.add(`menu-item`);
-//     const img = document.createElement("img");
-//     const text = document.createElement("p");
-//     text.textContent = element;
-//     div.appendChild(img);
-//     div.appendChild(text);
-//     menu.appendChild(div);
-//   });
-// }
-
-{
-  /* <div class="menu-item">
-          <img src="/src/tuna.png" alt="tuna" />
-          <h4>Tuna</h4> */
 }
